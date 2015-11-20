@@ -1,14 +1,27 @@
-<%= image_tag @comic.image.url(:medium) %> 
-
-<p>
-  <strong>Title:</strong>
-  <%= @comic.title %>
-</p>
-
-<p>
-  <strong>Desrciption:</strong>
-  <%= @comic.desrciption %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @comic.photo_url, class: 'photo_url' %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Title:</strong></td>
+                <td><%= @comic.title %></td>
+              </tr>
+              <tr>
+                <strong>Desrciption:</strong>
+                <%= @comic.desrciption %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_comic_path(@comic) %> |
 <%= link_to 'Back', comics_path %>
+<%= link_to 'Delete', comic_path(@comic), method: :delete %>
