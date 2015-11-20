@@ -47,3 +47,7 @@ group :development do
   gem 'paperclip', '~> 4.3', '>= 4.3.2'
   gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 end
+
+group :production do
+  gem 'rails_12factor'
+end
