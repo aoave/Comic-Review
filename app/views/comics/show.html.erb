@@ -1,0 +1,14 @@
+<%= image_tag @comic.image.url(:medium) %> 
+
+<p>
+  <strong>Title:</strong>
+  <%= @comic.title %>
+</p>
+
+<p>
+  <strong>Desrciption:</strong>
+  <%= @comic.desrciption %>
+</p>
+
+<%= link_to 'Edit', edit_comic_path(@comic) %> |
+<%= link_to 'Back', comics_path %>
