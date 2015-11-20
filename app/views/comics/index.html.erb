@@ -1,28 +1,19 @@
-<h1>Awesome Comics</h1>
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1>The Best Comics Reviewed Here</h1>
+      <p>Keep up on the latest, greatest, and most exciting comics in the industry! Know what issues pack a punch or what issues
+      are just plain old filler. This is The Comic Corner. </p>
+      <p><%= link_to "Dare to be Awesome", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Desrciption</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @comics.each do |comic| %>
-      <tr>
-        <td><%= image_tag comic.image.url(:medium) %></td>
-        <td><%= comic.title %></td>
-        <td><%= comic.desrciption %></td>
-        <td><%= link_to 'Show', comic %></td>
-        <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
-        <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Comic', new_comic_path %>
+<div class="row">
+  <% @comics.each do |comic| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <% link_to (image_tag comic.image.url(:medium), class: 'image'), comic %>
+      </div>
+    </div>
+  <% end %>
+</div>
