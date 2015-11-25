@@ -7,10 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- nice use of a partial for the header -->
   <%= render 'layouts/header' %>
   <% flash.each do |name, msg| %>
     <% content_tag(:div, msg, class: "alert alert-info") %>
-    <% end %>
+    <% end %> <!-- this should be indented two spaces to the left -->
     <%= yield %>
 
 </body>

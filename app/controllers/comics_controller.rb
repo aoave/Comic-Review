@@ -12,6 +12,7 @@ class ComicsController < ApplicationController
 
 
   def new
+    # this is good!
     @comic = current_user.comics.build
   end
 
@@ -23,6 +24,9 @@ class ComicsController < ApplicationController
   def create
     @comic = current_user.comics.build(comic_params)
 
+    # I'd remove this until you actually have a use for your app to be an API
+    # I'd also suggest against using scaffold generator until you've built ~4
+    # rails apps by hand
     respond_to do |format|
       if @comic.save
         format.html { redirect_to @comic, notice: 'Comic was successfully created.' }
